@@ -19,8 +19,10 @@ from django.contrib import admin
 from django.urls import URLPattern, URLResolver, path
 
 from furai.views import index
+from posts.views import index as posts
 
 urlpatterns: list[URLResolver | URLPattern] = [
     path("admin/", admin.site.urls),
     path("", index),
+    path("posts/", posts),
 ]
