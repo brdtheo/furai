@@ -57,10 +57,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "furai.urls"
 
-TEMPLATES = [
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
+
+
+TEMPLATES: list[dict[str, str | list[str] | bool | dict[str, list[str]]]] = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(SETTINGS_PATH, "furai/templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -80,10 +83,10 @@ WSGI_APPLICATION = "furai.wsgi.application"
 
 tmpPostgres = urlparse(os.getenv("DATABASE_URL"))
 
-DATABASES = {
+DATABASES: dict[str, dict[str, str | int | bytes | None]] = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": tmpPostgres.path.replace("/", ""),
+        "NAME": tmpPostgres.path.replace("/", ""),  # type: ignore
         "USER": tmpPostgres.username,
         "PASSWORD": tmpPostgres.password,
         "HOST": tmpPostgres.hostname,
