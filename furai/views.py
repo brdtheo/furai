@@ -7,6 +7,6 @@ from django.shortcuts import render
 def index(request: HttpRequest) -> HttpResponse:
     return render(
         request,
-        "index.html",
+        "furai/index.html",
         context={"date": datetime.now(timezone.utc)},
     )
