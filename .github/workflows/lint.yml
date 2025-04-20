@@ -17,4 +17,4 @@ jobs:
         run: pip install ruff
 
       - name: Run Ruff
-        run: ruff check --output-format=github furai/
+        run: ruff check --output-format=github furai/ posts/
