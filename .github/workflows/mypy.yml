@@ -15,23 +15,10 @@ jobs:
           python-version: 3.13
 
       - name: Install Dependencies
-        run: |
-          pip install -r requirements.txt
-
-      - name: Install MyPy
-        run: pip install mypy
-
-      - name: Install Django stubs
-        run: pip install 'django-stubs[compatible-mypy]'
-
-      - name: Install dotenv
-        run: pip install python-dotenv
+        run: pip install -r requirements.txt
 
       - name: Set DATABASE_URL from secret
         run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
-
-      - name: Install DB driver
-        run: pip install psycopg2-binary
 
       - name: Run mypy
         run: |
