@@ -1,3 +1,5 @@
+from typing import Any, override
+
 import markdown
 from django.db import models
 from django.utils import timezone
@@ -31,7 +33,7 @@ class Post(models.Model):
         help_text="The most recent update date of the post",
         db_comment="The most recent update date of the post",
         null=True,
-        auto_now=True,
+        blank=True,
     )
 
     # Methods
@@ -43,3 +45,10 @@ class Post(models.Model):
         return markdown.markdown(
             self.content, extensions=["markdown.extensions.fenced_code"]
         )
+
+    @override
+    def save(self, *args: Any, **kwargs: Any) -> None:
+        """Use None for initial updated_at value"""
+        if self.pk:
+            self.updated_at = timezone.now()
+        super().save(*args, **kwargs)
