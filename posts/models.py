@@ -1,7 +1,6 @@
-from datetime import datetime, timezone
-
 import markdown
 from django.db import models
+from django.utils import timezone
 
 
 class Post(models.Model):
@@ -26,7 +25,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(
         help_text="The creation date of the post",
         db_comment="The creation date of the post",
-        default=datetime.now(timezone.utc),
+        default=timezone.now(),
     )
     updated_at = models.DateTimeField(
         help_text="The most recent update date of the post",
