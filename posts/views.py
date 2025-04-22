@@ -22,5 +22,5 @@ def post(request: HttpRequest, slug: str) -> HttpResponse:
     return render(
         request,
         "posts/post.html",
-        context={"title": post.title, "content": post.content},
+        context={"title": post.title, "content": post.get_content_html()},
     )
