@@ -1,5 +1,6 @@
 from datetime import datetime, timezone
 
+import markdown
 from django.db import models
 
 
@@ -29,3 +30,9 @@ class Post(models.Model):
     # Methods
     def __str__(self) -> str:
         return self.title
+
+    def get_content_html(self) -> str:
+        """Returns HTML code from rich text"""
+        return markdown.markdown(
+            self.content, extensions=["markdown.extensions.fenced_code"]
+        )

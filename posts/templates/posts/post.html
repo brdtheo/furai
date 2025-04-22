@@ -10,7 +10,7 @@
     {% include "furai/header.html" %}
     <main>
       <h1>{{ title }}</h1>
-      <p>{{ content }}</p>
+      {{ content | safe }}
     </main>
   </body>
 </html>
