@@ -7,3 +7,4 @@ markdown
 types-Markdown
 mypy
 django-stubs[compatible-mypy]
+pytest
