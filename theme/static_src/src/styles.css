@@ -8,3 +8,16 @@
   * the scope of this path.
   */
 @source "../../../**/*.{html,py,js}";
+
+@theme {
+  --color-background: #0f0f0f;
+  --color-electric-green: #00ff1e;
+  --color-rufous: #ad1700;
+  --color-corsa: #d50707;
+  --color-post-it: #ffe066;
+  --color-dark-red: #890000;
+  --color-passport: #ffeed0;
+  --color-frog: #0e2800;
+  --color-cream: #fff7db;
+  --font-pixelify: "Pixelify Sans", system-ui, "sans-serif";
+}
