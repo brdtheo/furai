@@ -1,0 +1,16 @@
+html {
+  font-family: "Fira Mono", system-ui, sans-serif;
+}
+
+body {
+  background-color: #0f0f0f;
+}
+
+main {
+  padding-bottom: 4rem;
+}
+
+.wrapper {
+  width: 500px;
+  margin: 0 auto;
+}
