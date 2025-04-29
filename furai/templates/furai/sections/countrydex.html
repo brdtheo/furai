@@ -1,0 +1,36 @@
+<section>
+  <div class="border-8 border-dark-red bg-passport flex gap-6 p-4 h-42 rounded-md">
+    <img class="object-cover aspect-square h-10"
+         src="https://d3np79dr82q4gx.cloudfront.net/luggage.png"
+         alt="" />
+    <div class="flex flex-col gap-4 font-medium flex-1">
+      <div class="flex flex-col gap-2">
+        <h3 class="text-sm uppercase">my countrydex</h3>
+        <ul class="flex gap-2">
+          {% for country in visited_country_list %}
+            <li>
+              <img src="https://d3np79dr82q4gx.cloudfront.net/countries/{{ country }}.png"
+                   alt="{{ country }}" />
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="text-sm uppercase">to visit</h3>
+        <ul class="flex gap-2">
+          {% for country in to_visit_country_list %}
+            <li class="w-8">
+              <img src="https://d3np79dr82q4gx.cloudfront.net/countries/{{ country }}.png"
+                   alt="{{ country }}" />
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="flex-1 flex justify-center items-center">
+      <img class="rotate-12 h-24 self-center"
+           src="https://d3np79dr82q4gx.cloudfront.net/stamp.webp"
+           alt="travel stamp" />
+    </div>
+  </div>
+</section>
