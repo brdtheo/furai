@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  {% include "furai/head.html" with title=title %}
-  <body>
-    {% include "furai/header.html" %}
-    <main>
-      <h1>{{ title }}</h1>
-      {{ content | safe }}
-    </main>
-  </body>
-</html>
+{% extends "furai/base.html" %}
+{% block title %}
+  {{ title }}
+{% endblock title %}
+{% block metadescription %}
+  lorem ipsum dolor sit amet
+{% endblock metadescription %}
+{% block main %}
+  <h1>{{ title }}</h1>
+  {{ content | safe }}
+{% endblock main %}

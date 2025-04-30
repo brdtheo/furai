@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  {% include "furai/head.html" with title="Théo Billardey" %}
-  <body>
-    {% include "furai/header.html" %}
-    <main class="wrapper flex flex-col gap-8">
-      {% include "furai/sections/summary.html" %}
-      <div class="flex flex-col gap-4">
-        {% include "furai/sections/latest-post.html" with title=latest_post.title %}
-        {% include "furai/sections/fun-fact.html" %}
-        {% include "furai/sections/countrydex.html" with visited_country_list=visited_country_list to_visit_country_list=to_visit_country_list %}
-        {% include "furai/sections/hire-me.html" %}
-        {% include "furai/sections/pinned-media.html" %}
-        {% include "furai/sections/zen.html" %}
-      </div>
-    </main>
-  </body>
-</html>
+{% extends "furai/base.html" %}
+{% block title %}
+  Théo Billardey
+{% endblock title %}
+{% block metadescription %}
+  lorem ipsum dolor sit amet
+{% endblock metadescription %}
+{% block main %}
+  {% include "furai/sections/summary.html" %}
+  <div class="flex flex-col gap-4">
+    {% include "furai/sections/latest-post.html" with title=latest_post.title %}
+    {% include "furai/sections/fun-fact.html" %}
+    {% include "furai/sections/countrydex.html" with visited_country_list=visited_country_list to_visit_country_list=to_visit_country_list %}
+    {% include "furai/sections/hire-me.html" %}
+    {% include "furai/sections/pinned-media.html" %}
+    {% include "furai/sections/zen.html" %}
+  </div>
+{% endblock main %}

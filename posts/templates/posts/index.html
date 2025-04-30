@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-  {% include "furai/head.html" with title="Posts" %}
-  <body>
-    {% include "furai/header.html" %}
-    <main>
-      <h1>posts</h1>
-      <ul>
-        {% for post in posts %}
-          <li>
-            <a href="{% url 'post-detail' post.slug %}">
-              <h2>{{ post.title }}</h2>
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    </main>
-  </body>
-</html>
+{% extends "furai/base.html" %}
+{% block title %}
+  Blog - Théo Billardey
+{% endblock title %}
+{% block metadescription %}
+  lorem ipsum dolor sit amet
+{% endblock metadescription %}
+{% block main %}
+  <h1>posts</h1>
+  <ul>
+    {% for post in posts %}
+      <li>
+        <a href="{% url 'post-detail' post.slug %}">
+          <h2>{{ post.title }}</h2>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock main %}
