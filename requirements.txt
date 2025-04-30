@@ -9,4 +9,5 @@ mypy
 django-stubs[compatible-mypy]
 pytest
 django-tailwind[reload]
+ruff
 djlint
