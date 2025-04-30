@@ -1,16 +1,10 @@
 <section class="flex gap-4 relative border border-electric-green px-6 pt-8 pb-6">
-  <h2
-    class="uppercase absolute top-[-12px] left-[32px] px-4 border-x border-x-electric-green text-white bg-background"
-  >
+  <h2 class="uppercase absolute top-[-12px] left-[32px] px-4 border-x border-x-electric-green text-white bg-background">
     Latest post
   </h2>
-
-  <img
-    class="object-cover aspect-square w-36 h-36"
-    src="https://d3np79dr82q4gx.cloudfront.net/latest-blog-post-placeholder.jpeg"
-    alt="Driving in Osaka - A unique JDM experience"
-  />
-
+  <img class="object-cover aspect-square w-36 h-36"
+       src="https://d3np79dr82q4gx.cloudfront.net/latest-blog-post-placeholder.jpeg"
+       alt="Driving in Osaka - A unique JDM experience" />
   <div class="flex flex-col justify-between">
     <div>
       <h3 class="text-electric-green font-medium text-base pb-2">{{ title }}</h3>
@@ -21,14 +15,10 @@
         vitae consectetur error delectus quasi libero.
       </p>
     </div>
-
     <div class="flex justify-between items-center">
       <span class="text-sm text-white">April 25, 2025</span>
-      <a
-        href="/blog/{{ latest_post.slug }}"
-        class="bg-rufous text-white px-px text-sm"
-        >Read &gt;</a
-      >
+      <a href="{% url 'post-detail' latest_post.slug %}"
+         class="bg-rufous text-white px-px text-sm">Read &gt;</a>
     </div>
   </div>
 </section>
