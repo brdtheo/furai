@@ -3,9 +3,9 @@ name: Static analysis
 on: [push]
 
 jobs:
-  ruff:
+  lint:
     runs-on: ubuntu-latest
-    name: Lint with Ruff
+    name: Lint code & templates
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python 3.13
@@ -13,8 +13,11 @@ jobs:
         with:
           python-version: 3.13
 
-      - name: Install Ruff
-        run: pip install ruff
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
 
       - name: Run Ruff
         run: ruff check --output-format=github furai/ posts/
+
+      - name: Run djLint
+        run: djlint furai/templates posts/templates --profile=django --ignore=H031
