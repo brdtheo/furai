@@ -6,7 +6,11 @@ from posts.models import Post
 
 def index(request: HttpRequest) -> HttpResponse:
     # Retrieve the latest blog post. If none, hide the section
-    latest_post = Post.objects.latest("created_at")
+    try:
+        latest_post = Post.objects.latest("created_at")
+    except Post.DoesNotExist:
+        latest_post = None
+
     visited_country_list = [
         "france",
         "germany",
