@@ -26,26 +26,33 @@ RUN pip install --upgrade pip
 RUN apt-get update \
   && apt-get -y install libpq-dev gcc curl
 
-# Install Node.js using NVM, npm
+# Install Node.js using NVM
 SHELL ["/bin/bash", "--login", "-c"]
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 RUN nvm install --lts
 RUN nvm use --lts
 
-# Install NPM
-RUN npm install -g npm
+# Install pnpm
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
+
 
 # Copy requirements file first to leverage Docker cache
 COPY requirements.txt .
 
-# Install dependencies
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the Django project to container
 COPY . .
 
-# Install NPM dependencies for django-tailwind
-RUN npm install /app/theme/static_src
+# Install Node.js dependencies
+RUN pnpm install
+
+# Compile CSS
+RUN pnpm tailwind:build
 
 # Expose the Django port
 EXPOSE 8004

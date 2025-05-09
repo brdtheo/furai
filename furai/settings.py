@@ -38,9 +38,6 @@ CRSF_TRUSTED_ORIGINS: list[str] = os.getenv(
 ).split(",")
 
 # Application definition
-
-TAILWIND_APP_NAME = "theme"
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -48,8 +45,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "tailwind",
-    "theme",
     "posts",
 ]
 
