@@ -1,7 +1,7 @@
 from django.http import Http404, HttpRequest, HttpResponse
 from django.shortcuts import render
 
-from posts.models import Post
+from blog.models import Post
 
 
 def index(request: HttpRequest) -> HttpResponse:
@@ -10,7 +10,7 @@ def index(request: HttpRequest) -> HttpResponse:
     except Post.DoesNotExist:
         raise Http404
 
-    return render(request, "posts/index.html", context={"posts": posts})
+    return render(request, "blog/index.html", context={"posts": posts})
 
 
 def post(request: HttpRequest, slug: str) -> HttpResponse:
@@ -21,6 +21,6 @@ def post(request: HttpRequest, slug: str) -> HttpResponse:
 
     return render(
         request,
-        "posts/post.html",
+        "blog/post.html",
         context={"title": post.title, "content": post.get_content_html()},
     )
