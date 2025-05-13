@@ -1,7 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
-from posts.models import Post
+from blog.models import Post
 
 
 def index(request: HttpRequest) -> HttpResponse:
