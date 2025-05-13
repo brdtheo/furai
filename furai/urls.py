@@ -23,5 +23,5 @@ from furai.views import index
 urlpatterns: list[URLResolver | URLPattern] = [
     path("admin/", admin.site.urls),
     path("", index, name="home"),
-    path("posts/", include("posts.urls")),
+    path("blog/", include("blog.urls")),
 ]
