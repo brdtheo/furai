@@ -22,4 +22,4 @@ jobs:
 
       - name: Run mypy
         run: |
-          mypy --disallow-untyped-defs --namespace-packages --explicit-package-bases furai blog
+          mypy --disallow-untyped-defs --namespace-packages --explicit-package-bases brdtheo blog

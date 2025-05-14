@@ -30,7 +30,7 @@ def index(request: HttpRequest) -> HttpResponse:
 
     return render(
         request,
-        "furai/index.html",
+        "brdtheo/index.html",
         context={
             "latest_post": latest_post,
             "visited_country_list": visited_country_list,

@@ -1,5 +1,5 @@
 """
-URL configuration for furai project.
+URL configuration for brdtheo project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
@@ -18,7 +18,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import URLPattern, URLResolver, include, path
 
-from furai.views import index
+from brdtheo.views import index
 
 urlpatterns: list[URLResolver | URLPattern] = [
     path("admin/", admin.site.urls),

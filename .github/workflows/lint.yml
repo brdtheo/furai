@@ -17,7 +17,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run Ruff
-        run: ruff check --output-format=github furai/ blog/
+        run: ruff check --output-format=github brdtheo/ blog/
 
       - name: Run djLint
-        run: djlint furai/templates blog/templates --profile=django --ignore=H031
+        run: djlint brdtheo/templates blog/templates --profile=django --ignore=H031
