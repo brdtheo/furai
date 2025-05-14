@@ -20,4 +20,4 @@ jobs:
         run: ruff check --output-format=github brdtheo/ blog/
 
       - name: Run djLint
-        run: djlint brdtheo/templates blog/templates --profile=django --ignore=H031
+        run: djlint brdtheo/templates blog/templates
